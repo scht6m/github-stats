@@ -20,29 +20,31 @@
 
         /* One shared timeline. Each animated element names its own slice of it
            as a percentage, so the duration below is the only speed control:
-           raise it and the whole sequence slows proportionally. At 13s, 1% is
-           130ms. Elements are authored in their finished state and the
+           raise it and the whole sequence slows proportionally. At 16s, 1% is
+           160ms. Elements are authored in their finished state and the
            animation rewinds them, which keeps the SVG readable as a plain
            transcript if animations never run. */
-        .an { animation-duration: 13s; animation-iteration-count: infinite; animation-timing-function: linear }
+        .an { animation-duration: 16s; animation-iteration-count: infinite; animation-timing-function: linear }
 
         /* Prompts fade in and stay. */
         @keyframes p0  { 0%          { opacity: 0; animation-timing-function: ease-out } 2.4%,  100% { opacity: 1 } }
         @keyframes p2  { 0%, 11.3%   { opacity: 0; animation-timing-function: ease-out } 13.7%, 100% { opacity: 1 } }
         @keyframes p14 { 0%, 33.8%   { opacity: 0; animation-timing-function: ease-out } 36.2%, 100% { opacity: 1 } }
         @keyframes p16 { 0%, 45.1%   { opacity: 0; animation-timing-function: ease-out } 47.5%, 100% { opacity: 1 } }
-        @keyframes p18 { 0%, 54.6%   { opacity: 0; animation-timing-function: ease-out } 57%,   100% { opacity: 1 } }
 
-        /* Cursors arrive with their prompt and leave on Enter. */
+        /* Cursors arrive with their prompt and leave on Enter. The last one is
+           what the shell leaves behind once exit has run: no further prompt,
+           just a cursor, so it stays. */
         @keyframes c0  { 0%        { opacity: 0; animation-timing-function: ease-out } 2.4%,  9.9%  { opacity: 1 } 10.5%, 100% { opacity: 0 } }
         @keyframes c2  { 0%, 11.3% { opacity: 0; animation-timing-function: ease-out } 13.7%, 23%   { opacity: 1 } 23.6%, 100% { opacity: 0 } }
         @keyframes c14 { 0%, 33.8% { opacity: 0; animation-timing-function: ease-out } 36.2%, 43.7% { opacity: 1 } 44.3%, 100% { opacity: 0 } }
         @keyframes c16 { 0%, 45.1% { opacity: 0; animation-timing-function: ease-out } 47.5%, 53.2% { opacity: 1 } 53.8%, 100% { opacity: 0 } }
+        @keyframes c18 { 0%, 54.6% { opacity: 0; animation-timing-function: ease-out } 57%,   100% { opacity: 1 } }
         @keyframes blink { 0%, 49.9% { opacity: 1 } 50%, 100% { opacity: 0 } }
         .blink { animation: blink 1s linear infinite }
 
         /* Typing: a background-coloured mask slides right one character per
-           step (~117ms), uncovering the command a letter at a time with the
+           step (~144ms), uncovering the command a letter at a time with the
            cursor riding its leading edge. Even spacing is what makes it read as
            typing rather than as a stutter. */
         @keyframes t0  { 0%, 3.2%  { transform: translateX(0); animation-timing-function: steps(6, end) } 8.6%,  100% { transform: translateX(48px) } }
@@ -50,7 +52,7 @@
         @keyframes t14 { 0%, 37%   { transform: translateX(0); animation-timing-function: steps(6, end) } 42.4%, 100% { transform: translateX(48px) } }
         @keyframes t16 { 0%, 48.3% { transform: translateX(0); animation-timing-function: steps(4, end) } 51.9%, 100% { transform: translateX(32px) } }
 
-        /* Output lines settle in from just below, ~91ms apart, so a block
+        /* Output lines settle in from just below, ~112ms apart, so a block
            prints as a wave down the screen instead of appearing all at once. */
         @keyframes o1  { 0%, 9.9%  { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 12.3%, 100% { opacity: 1; transform: translateY(0) } }
         @keyframes n0  { 0%, 23%   { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 25.4%, 100% { opacity: 1; transform: translateY(0) } }
@@ -216,12 +218,9 @@
             <g class="an" style="animation-name:o17"><text textLength="32" class="fg">exit</text></g>
         </g>
 
-        <!-- resting prompt -->
+        <!-- the shell has exited: no prompt returns, only a resting cursor -->
         <g transform="translate(0, 306)">
-            <use xlink:href="#prompt" class="an" style="animation-name:p18" />
-            <g transform="translate(136, 0)">
-                <g class="an" style="animation-name:p18" opacity="0"><rect class="cursor blink" y="1" width="8" height="15" /></g>
-            </g>
+            <g class="an" style="animation-name:c18" opacity="0"><rect class="cursor blink" y="1" width="8" height="15" /></g>
         </g>
 
     </g>
