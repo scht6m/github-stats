@@ -1,6 +1,6 @@
 const { Octokit } = require("@octokit/rest");
 
-const { utils, align_username, align } = require("./utils")
+const { utils, align_username, align, align_to } = require("./utils")
 
 const token = process.env.GHT
 
@@ -24,6 +24,22 @@ function dateDiffInDays(date) {
     const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
     return Math.floor((utc1 - utc2) / _MS_PER_DAY);
+}
+
+function ageBreakdown(date) {
+    const _MS_PER_HOUR = 1000 * 60 * 60;
+    const _MS_PER_DAY = _MS_PER_HOUR * 24;
+    const _MS_PER_YEAR = _MS_PER_DAY * 365;
+
+    let diffMs = Date.now() - new Date(date).getTime();
+
+    const years = Math.floor(diffMs / _MS_PER_YEAR);
+    diffMs -= years * _MS_PER_YEAR;
+    const days = Math.floor(diffMs / _MS_PER_DAY);
+    diffMs -= days * _MS_PER_DAY;
+    const hours = Math.floor(diffMs / _MS_PER_HOUR);
+
+    return `${years}y ${days}d ${hours}h`;
 }
 
 class GithubUser {
@@ -73,7 +89,7 @@ class GithubUser {
         this.issues = align(this.issueCount);
         this.pr = align(this.prCount);
         this.uptime = this.createdAt;
-        this.uptimeAligned = align(this.createdAt);
+        this.uptimeAligned = align_to(ageBreakdown(this.userContent.data.created_at), 16);
         this.username = align_username(this.userName);
     }
 }

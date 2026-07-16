@@ -70,19 +70,19 @@
                 animation-fill-mode: forwards;
             }
 
-            @keyframes reveal22{0%{opacity:0}51.436%{opacity:0}51.586%{opacity:1}100%{opacity:1}}
-            @keyframes reveal23{0%{opacity:0}51.736%{opacity:0}51.886%{opacity:1}100%{opacity:1}}
-            @keyframes reveal24{0%{opacity:0}52.036%{opacity:0}52.186%{opacity:1}100%{opacity:1}}
-            @keyframes reveal25{0%{opacity:0}52.336%{opacity:0}52.486%{opacity:1}100%{opacity:1}}
-            @keyframes reveal26{0%{opacity:0}52.636%{opacity:0}52.786%{opacity:1}100%{opacity:1}}
-            @keyframes reveal27{0%{opacity:0}52.936%{opacity:0}53.086%{opacity:1}100%{opacity:1}}
-            @keyframes reveal28{0%{opacity:0}53.236%{opacity:0}53.386%{opacity:1}100%{opacity:1}}
-            @keyframes reveal29{0%{opacity:0}53.536%{opacity:0}53.686%{opacity:1}100%{opacity:1}}
-            @keyframes reveal30{0%{opacity:0}53.836%{opacity:0}53.986%{opacity:1}100%{opacity:1}}
-            @keyframes reveal31{0%{opacity:0}54.136%{opacity:0}54.286%{opacity:1}100%{opacity:1}}
-            @keyframes reveal32{0%{opacity:0}54.436%{opacity:0}54.586%{opacity:1}100%{opacity:1}}
-            @keyframes reveal33{0%{opacity:0}54.736%{opacity:0}54.886%{opacity:1}100%{opacity:1}}
-            @keyframes reveal34{0%{opacity:0}55.036%{opacity:0}55.186%{opacity:1}100%{opacity:1}}
+            @keyframes reveal22{0%{opacity:0;transform:translateY(-6px)}51.436%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.036%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal23{0%{opacity:0;transform:translateY(-6px)}51.886%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.486%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal24{0%{opacity:0;transform:translateY(-6px)}52.336%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.936%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal25{0%{opacity:0;transform:translateY(-6px)}52.786%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}53.386%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal26{0%{opacity:0;transform:translateY(-6px)}53.236%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}53.836%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal27{0%{opacity:0;transform:translateY(-6px)}53.686%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}54.286%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal28{0%{opacity:0;transform:translateY(-6px)}54.136%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}54.736%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal29{0%{opacity:0;transform:translateY(-6px)}54.586%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}55.186%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal30{0%{opacity:0;transform:translateY(-6px)}55.036%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}55.636%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal31{0%{opacity:0;transform:translateY(-6px)}55.486%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.086%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal32{0%{opacity:0;transform:translateY(-6px)}55.936%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.536%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal33{0%{opacity:0;transform:translateY(-6px)}56.386%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.986%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+            @keyframes reveal34{0%{opacity:0;transform:translateY(-6px)}56.836%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}57.436%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
         ]]>
         </style>
         <style type="text/css" id="user-style">
@@ -272,7 +272,7 @@
                 <rect x="32" y="0" width="32" height="14" class="orange" />
                 <rect x="160" y="0" width="32" height="14" class="orange" />
                 <text x="220" textLength="64" class="purple">Uptime: </text>
-                <text x="284" textLength="96" class="green">{{ data.uptimeAligned }}</text>
+                <text x="284" textLength="128" class="green">{{ data.uptimeAligned }}</text>
             </g>
             <g id="g26">
                 <rect x="32" y="0" width="32" height="14" class="orange" />

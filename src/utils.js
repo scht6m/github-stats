@@ -4,6 +4,13 @@ let align = (number) => {
     return " " + str + (" ".repeat(11 - str.length))
 }
 
+let align_to = (str, width) => {
+
+    str = str.toString()
+    if (str.length >= width) return str.slice(0, width)
+    return str + " ".repeat(width - str.length)
+}
+
 let align_username = (username) => {
 
     var len = username.length
@@ -23,4 +30,4 @@ let align_username = (username) => {
 }
 
 
-module.exports = { align, align_username }
+module.exports = { align, align_to, align_username }
