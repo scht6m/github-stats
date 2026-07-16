@@ -73,6 +73,7 @@ class GithubUser {
         this.issues = align(this.issueCount);
         this.pr = align(this.prCount);
         this.uptime = this.createdAt;
+        this.uptimeAligned = align(this.createdAt);
         this.username = align_username(this.userName);
     }
 }
