@@ -167,77 +167,77 @@
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="24" class="foreground">$ g</text>
+                <text x="144" textLength="24" class="foreground">$ n</text>
                 <text x="168" textLength="8" class="background"></text>
             </g>
             <g id="g12">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="32" class="foreground">$ gi</text>
+                <text x="144" textLength="32" class="foreground">$ ne</text>
                 <text x="176" textLength="8" class="background"></text>
             </g>
             <g id="g13">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="40" class="foreground">$ git</text>
+                <text x="144" textLength="40" class="foreground">$ neo</text>
                 <text x="184" textLength="8" class="background"></text>
             </g>
             <g id="g14">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ git </text>
+                <text x="144" textLength="48" class="foreground">$ neof</text>
                 <text x="192" textLength="8" class="background"></text>
             </g>
             <g id="g15">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="56" class="foreground">$ git s</text>
+                <text x="144" textLength="56" class="foreground">$ neofe</text>
                 <text x="200" textLength="8" class="background"></text>
             </g>
             <g id="g16">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ git st</text>
+                <text x="144" textLength="64" class="foreground">$ neofet</text>
                 <text x="208" textLength="8" class="background"></text>
             </g>
             <g id="g17">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="72" class="foreground">$ git sta</text>
+                <text x="144" textLength="72" class="foreground">$ neofetc</text>
                 <text x="216" textLength="8" class="background"></text>
             </g>
             <g id="g18">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="80" class="foreground">$ git stat</text>
+                <text x="144" textLength="80" class="foreground">$ neofetch</text>
                 <text x="224" textLength="8" class="background"></text>
             </g>
             <g id="g19">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="88" class="foreground">$ git statu</text>
-                <text x="232" textLength="8" class="background"></text>
+                <text x="144" textLength="80" class="foreground">$ neofetch</text>
+                <text x="224" textLength="8" class="background"></text>
             </g>
             <g id="g20">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="96" class="foreground">$ git status</text>
-                <text x="240" textLength="8" class="background"></text>
+                <text x="144" textLength="80" class="foreground">$ neofetch</text>
+                <text x="224" textLength="8" class="background"></text>
             </g>
             <g id="g21">
                 <text x="0" textLength="128" font-weight="bold" class="color10">{{ data.username }}</text>
                 <text x="128" textLength="8" class="foreground">:</text>
                 <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="96" class="foreground">$ git status</text>
+                <text x="144" textLength="80" class="foreground">$ neofetch</text>
             </g>
             <g id="g22">
                 <text x="0" textLength="240" font-style="italic" class="foreground">        GitHub Status         </text>
@@ -500,13 +500,13 @@
             <g>
                 <use xlink:href="#g8" y="6732" />
                 <use xlink:href="#g10" y="6749" />
-                <rect x="232" y="6766" width="8" height="17" class="foreground" />
+                <rect x="224" y="6766" width="8" height="17" class="foreground" />
                 <use xlink:href="#g19" y="6766" />
             </g>
             <g>
                 <use xlink:href="#g8" y="7106" />
                 <use xlink:href="#g10" y="7123" />
-                <rect x="240" y="7140" width="8" height="17" class="foreground" />
+                <rect x="224" y="7140" width="8" height="17" class="foreground" />
                 <use xlink:href="#g20" y="7140" />
             </g>
             <g>
