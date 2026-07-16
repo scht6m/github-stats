@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 750 430" width="825" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 500 430" width="550" version="1.1">
     <defs>
         <termtosvg:template_settings xmlns:termtosvg="https://github.com/nbedos/termtosvg">
             <termtosvg:screen_geometry columns="95" rows="21" />
@@ -69,6 +69,20 @@
                 animation-timing-function: steps(1,end);
                 animation-fill-mode: forwards;
             }
+
+            @keyframes reveal22{0%{opacity:0}51.436%{opacity:0}51.586%{opacity:1}100%{opacity:1}}
+            @keyframes reveal23{0%{opacity:0}51.736%{opacity:0}51.886%{opacity:1}100%{opacity:1}}
+            @keyframes reveal24{0%{opacity:0}52.036%{opacity:0}52.186%{opacity:1}100%{opacity:1}}
+            @keyframes reveal25{0%{opacity:0}52.336%{opacity:0}52.486%{opacity:1}100%{opacity:1}}
+            @keyframes reveal26{0%{opacity:0}52.636%{opacity:0}52.786%{opacity:1}100%{opacity:1}}
+            @keyframes reveal27{0%{opacity:0}52.936%{opacity:0}53.086%{opacity:1}100%{opacity:1}}
+            @keyframes reveal28{0%{opacity:0}53.236%{opacity:0}53.386%{opacity:1}100%{opacity:1}}
+            @keyframes reveal29{0%{opacity:0}53.536%{opacity:0}53.686%{opacity:1}100%{opacity:1}}
+            @keyframes reveal30{0%{opacity:0}53.836%{opacity:0}53.986%{opacity:1}100%{opacity:1}}
+            @keyframes reveal31{0%{opacity:0}54.136%{opacity:0}54.286%{opacity:1}100%{opacity:1}}
+            @keyframes reveal32{0%{opacity:0}54.436%{opacity:0}54.586%{opacity:1}100%{opacity:1}}
+            @keyframes reveal33{0%{opacity:0}54.736%{opacity:0}54.886%{opacity:1}100%{opacity:1}}
+            @keyframes reveal34{0%{opacity:0}55.036%{opacity:0}55.186%{opacity:1}100%{opacity:1}}
         ]]>
         </style>
         <style type="text/css" id="user-style">
@@ -240,70 +254,79 @@
                 <text x="144" textLength="80" class="foreground">$ neofetch</text>
             </g>
             <g id="g22">
-                <text x="0" textLength="352" class="orange">          &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;          </text>
-                <text x="480" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
+                <rect x="80" y="0" width="64" height="14" class="orange" />
+                <text x="220" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
             </g>
             <g id="g23">
-                <text x="0" textLength="448" class="orange">       &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;       </text>
-                <text x="480" textLength="128" class="foreground">----------------</text>
+                <rect x="56" y="0" width="112" height="14" class="orange" />
+                <text x="220" textLength="128" class="foreground">----------------</text>
             </g>
             <g id="g24">
-                <text x="0" textLength="448" class="orange">     &#9608;&#9608;&#9608;  &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  &#9608;&#9608;&#9608;     </text>
-                <text x="480" textLength="32" class="purple">OS: </text>
-                <text x="512" textLength="48" class="green">GitHub</text>
+                <rect x="40" y="0" width="24" height="14" class="orange" />
+                <rect x="80" y="0" width="64" height="14" class="orange" />
+                <rect x="160" y="0" width="24" height="14" class="orange" />
+                <text x="220" textLength="32" class="purple">OS: </text>
+                <text x="252" textLength="48" class="green">GitHub</text>
             </g>
             <g id="g25">
-                <text x="0" textLength="352" class="orange">    &#9608;&#9608;&#9608;&#9608;            &#9608;&#9608;&#9608;&#9608;    </text>
-                <text x="480" textLength="64" class="purple">Uptime: </text>
-                <text x="544" textLength="96" class="green"> 0          </text>
+                <rect x="32" y="0" width="32" height="14" class="orange" />
+                <rect x="160" y="0" width="32" height="14" class="orange" />
+                <text x="220" textLength="64" class="purple">Uptime: </text>
+                <text x="284" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g26">
-                <text x="0" textLength="352" class="orange">    &#9608;&#9608;&#9608;&#9608;            &#9608;&#9608;&#9608;&#9608;    </text>
-                <text x="480" textLength="56" class="purple">Stars: </text>
-                <text x="536" textLength="96" class="green"> 0          </text>
+                <rect x="32" y="0" width="32" height="14" class="orange" />
+                <rect x="160" y="0" width="32" height="14" class="orange" />
+                <text x="220" textLength="56" class="purple">Stars: </text>
+                <text x="276" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g27">
-                <text x="0" textLength="320" class="orange">    &#9608;&#9608;&#9608;              &#9608;&#9608;&#9608;    </text>
-                <text x="480" textLength="56" class="purple">Forks: </text>
-                <text x="536" textLength="96" class="green"> 0          </text>
+                <rect x="32" y="0" width="24" height="14" class="orange" />
+                <rect x="168" y="0" width="24" height="14" class="orange" />
+                <text x="220" textLength="56" class="purple">Forks: </text>
+                <text x="276" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g28">
-                <text x="0" textLength="352" class="orange">    &#9608;&#9608;&#9608;&#9608;            &#9608;&#9608;&#9608;&#9608;    </text>
-                <text x="480" textLength="72" class="purple">Commits: </text>
-                <text x="552" textLength="96" class="green"> 1          </text>
+                <rect x="32" y="0" width="32" height="14" class="orange" />
+                <rect x="160" y="0" width="32" height="14" class="orange" />
+                <text x="220" textLength="72" class="purple">Commits: </text>
+                <text x="292" textLength="96" class="green"> 1          </text>
             </g>
             <g id="g29">
-                <text x="0" textLength="384" class="orange">    &#9608;&#9608;&#9608;&#9608;&#9608;          &#9608;&#9608;&#9608;&#9608;&#9608;    </text>
-                <text x="480" textLength="88" class="purple">Followers: </text>
-                <text x="568" textLength="96" class="green"> 0          </text>
+                <rect x="32" y="0" width="40" height="14" class="orange" />
+                <rect x="152" y="0" width="40" height="14" class="orange" />
+                <text x="220" textLength="88" class="purple">Followers: </text>
+                <text x="308" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g30">
-                <text x="0" textLength="432" class="orange">     &#9608;&#9608; &#9608;&#9608;&#9608;&#9608;    &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;     </text>
-                <text x="480" textLength="120" class="purple">Pull Requests: </text>
-                <text x="600" textLength="96" class="green"> 0          </text>
+                <rect x="40" y="0" width="16" height="14" class="orange" />
+                <rect x="64" y="0" width="32" height="14" class="orange" />
+                <rect x="128" y="0" width="56" height="14" class="orange" />
+                <text x="220" textLength="120" class="purple">Pull Requests: </text>
+                <text x="340" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g31">
-                <text x="0" textLength="336" class="orange">      &#9608;&#9608;         &#9608;&#9608;&#9608;&#9608;&#9608;      </text>
-                <text x="480" textLength="64" class="purple">Issues: </text>
-                <text x="544" textLength="96" class="green"> 0          </text>
+                <rect x="48" y="0" width="16" height="14" class="orange" />
+                <rect x="136" y="0" width="40" height="14" class="orange" />
+                <text x="220" textLength="64" class="purple">Issues: </text>
+                <text x="284" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g32">
-                <text x="0" textLength="216" class="orange">         &#9608;&#9608;      &#9608;&#9608;</text>
-                <text x="480" textLength="56" class="purple">Repos: </text>
-                <text x="536" textLength="96" class="green"> 2          </text>
+                <rect x="72" y="0" width="16" height="14" class="orange" />
+                <rect x="136" y="0" width="16" height="14" class="orange" />
+                <text x="220" textLength="56" class="purple">Repos: </text>
+                <text x="276" textLength="96" class="green"> 2          </text>
             </g>
             <g id="g33">
-                <text x="0" textLength="8" class="background"></text>
-                <text x="480" textLength="56" class="purple">Gists: </text>
-                <text x="536" textLength="96" class="green"> 0          </text>
+                <text x="220" textLength="56" class="purple">Gists: </text>
+                <text x="276" textLength="96" class="green"> 0          </text>
             </g>
             <g id="g34">
-                <text x="0" textLength="8" class="background"></text>
-                <text x="480" textLength="24" class="foreground">&#9608;&#9608;&#9608;</text>
-                <text x="512" textLength="24" class="green">&#9608;&#9608;&#9608;</text>
-                <text x="544" textLength="24" class="purple">&#9608;&#9608;&#9608;</text>
-                <text x="576" textLength="24" class="orange">&#9608;&#9608;&#9608;</text>
-                <text x="608" textLength="24" class="color6">&#9608;&#9608;&#9608;</text>
+                <text x="220" textLength="24" class="foreground">&#9608;&#9608;&#9608;</text>
+                <text x="252" textLength="24" class="green">&#9608;&#9608;&#9608;</text>
+                <text x="284" textLength="24" class="purple">&#9608;&#9608;&#9608;</text>
+                <text x="316" textLength="24" class="orange">&#9608;&#9608;&#9608;</text>
+                <text x="348" textLength="24" class="color6">&#9608;&#9608;&#9608;</text>
             </g>
             <g id="g35">
                 <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
@@ -511,19 +534,19 @@
                 <use xlink:href="#g8" y="7854" />
                 <use xlink:href="#g10" y="7871" />
                 <use xlink:href="#g21" y="7888" />
-                <use xlink:href="#g22" y="7905" />
-                <use xlink:href="#g23" y="7922" />
-                <use xlink:href="#g24" y="7939" />
-                <use xlink:href="#g25" y="7956" />
-                <use xlink:href="#g26" y="7973" />
-                <use xlink:href="#g27" y="7990" />
-                <use xlink:href="#g28" y="8007" />
-                <use xlink:href="#g29" y="8024" />
-                <use xlink:href="#g30" y="8041" />
-                <use xlink:href="#g31" y="8058" />
-                <use xlink:href="#g32" y="8075" />
-                <use xlink:href="#g33" y="8092" />
-                <use xlink:href="#g34" y="8109" />
+                <use xlink:href="#g22" y="7905" style="animation:reveal22 14558ms linear infinite" />
+                <use xlink:href="#g23" y="7922" style="animation:reveal23 14558ms linear infinite" />
+                <use xlink:href="#g24" y="7939" style="animation:reveal24 14558ms linear infinite" />
+                <use xlink:href="#g25" y="7956" style="animation:reveal25 14558ms linear infinite" />
+                <use xlink:href="#g26" y="7973" style="animation:reveal26 14558ms linear infinite" />
+                <use xlink:href="#g27" y="7990" style="animation:reveal27 14558ms linear infinite" />
+                <use xlink:href="#g28" y="8007" style="animation:reveal28 14558ms linear infinite" />
+                <use xlink:href="#g29" y="8024" style="animation:reveal29 14558ms linear infinite" />
+                <use xlink:href="#g30" y="8041" style="animation:reveal30 14558ms linear infinite" />
+                <use xlink:href="#g31" y="8058" style="animation:reveal31 14558ms linear infinite" />
+                <use xlink:href="#g32" y="8075" style="animation:reveal32 14558ms linear infinite" />
+                <use xlink:href="#g33" y="8092" style="animation:reveal33 14558ms linear infinite" />
+                <use xlink:href="#g34" y="8109" style="animation:reveal34 14558ms linear infinite" />
                 <rect x="0" y="8126" width="8" height="17" class="foreground" />
                 <use xlink:href="#g9" y="8126" />
             </g>
