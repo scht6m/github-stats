@@ -1,14 +1,9 @@
-let align = (number) => {
-    
-    let str = number.toString()
-    return " " + str + (" ".repeat(11 - str.length))
-}
+// The template lays text on a fixed 8px character grid, so every value it
+// prints must have a known character count. pad() guarantees that width.
+let pad = (value, width) => {
 
-let align_to = (str, width) => {
-
-    str = str.toString()
-    if (str.length >= width) return str.slice(0, width)
-    return str + " ".repeat(width - str.length)
+    let str = value.toString()
+    return str.length >= width ? str.slice(0, width) : str + " ".repeat(width - str.length)
 }
 
 let align_username = (username) => {
@@ -30,4 +25,4 @@ let align_username = (username) => {
 }
 
 
-module.exports = { align, align_to, align_username }
+module.exports = { pad, align_username }

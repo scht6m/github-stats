@@ -1,6 +1,6 @@
 const { Octokit } = require("@octokit/rest");
 
-const { utils, align_username, align, align_to } = require("./utils")
+const { align_username, pad } = require("./utils")
 
 const token = process.env.GHT
 
@@ -14,32 +14,32 @@ const octokit = new Octokit({
     },
 });
 
+const MS_PER_HOUR = 1000 * 60 * 60;
+const MS_PER_DAY = MS_PER_HOUR * 24;
+const MS_PER_YEAR = MS_PER_DAY * 365;
 
-function dateDiffInDays(date) {
+// Widths the template reserves, in characters.
+const VALUE_WIDTH = 6;
+const UPTIME_WIDTH = 28;
+const CHAR_WIDTH = 8;
+const PROMPT_SUFFIX = ":~$ ".length;
 
-    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-    const utc1 = Date.now();
-    Date.now()
-    const b = new Date(date)
-    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
-    return Math.floor((utc1 - utc2) / _MS_PER_DAY);
+function plural(count, unit) {
+    return `${count} ${unit}${count === 1 ? "" : "s"}`
 }
 
-function ageBreakdown(date) {
-    const _MS_PER_HOUR = 1000 * 60 * 60;
-    const _MS_PER_DAY = _MS_PER_HOUR * 24;
-    const _MS_PER_YEAR = _MS_PER_DAY * 365;
+function formatUptime(date) {
 
-    let diffMs = Date.now() - new Date(date).getTime();
+    let elapsed = Date.now() - new Date(date).getTime()
 
-    const years = Math.floor(diffMs / _MS_PER_YEAR);
-    diffMs -= years * _MS_PER_YEAR;
-    const days = Math.floor(diffMs / _MS_PER_DAY);
-    diffMs -= days * _MS_PER_DAY;
-    const hours = Math.floor(diffMs / _MS_PER_HOUR);
+    const years = Math.floor(elapsed / MS_PER_YEAR)
+    elapsed -= years * MS_PER_YEAR
+    const days = Math.floor(elapsed / MS_PER_DAY)
+    elapsed -= days * MS_PER_DAY
+    const hours = Math.floor(elapsed / MS_PER_HOUR)
 
-    return `${years}y ${days}d ${hours}h`;
+    return `${plural(years, "year")}, ${plural(days, "day")}, ${plural(hours, "hour")}`
 }
 
 class GithubUser {
@@ -54,43 +54,40 @@ class GithubUser {
         return res.data.total_count
     }
 
-    async getIssueAndPr(type) {
+    async getPullRequests() {
         let res = await octokit.search.issuesAndPullRequests({
-            q: `type:${type} author:${this.userName}`
+            q: `type:pr author:${this.userName}`
         })
-
         return res.data.total_count
     }
 
     async fetchContent() {
-        this.userContent = await octokit.request("GET /users/{username}", {
+        const user = await octokit.request("GET /users/{username}", {
             username: this.userName,
         });
-        this.repoContent = await octokit.paginate("GET /users/{owner}/repos", {
+        const repos = await octokit.paginate("GET /users/{owner}/repos", {
             owner: this.userName,
         });
-        this.name = this.userContent.data.name;
-        this.repo = align(this.userContent.data.public_repos);
-        this.gists = align(this.userContent.data.public_gists);
-        this.followers = align(this.userContent.data.followers);
-        this.createdAt = dateDiffInDays(this.userContent.data.created_at);
-        this.starsCount = 0;
-        this.forkCount = 0;
-        this.repoContent.forEach(repo => {
-            this.starsCount += repo.stargazers_count
-            this.forkCount += repo.forks;
+
+        let starsCount = 0;
+        let forkCount = 0;
+        repos.forEach(repo => {
+            starsCount += repo.stargazers_count
+            forkCount += repo.forks;
         });
-        this.commitsCount = await this.getCommits()
-        this.issueCount = await this.getIssueAndPr('issue')
-        this.prCount = await this.getIssueAndPr('pr')
-        this.stars = align(this.starsCount);
-        this.forks = align(this.forkCount);
-        this.commits = align(this.commitsCount);
-        this.issues = align(this.issueCount);
-        this.pr = align(this.prCount);
-        this.uptime = this.createdAt;
-        this.uptimeAligned = align_to(ageBreakdown(this.userContent.data.created_at), 16);
+
         this.username = align_username(this.userName);
+        this.usernameWidth = this.username.length * CHAR_WIDTH;
+        this.promptWidth = (this.username.length + PROMPT_SUFFIX) * CHAR_WIDTH;
+        this.separator = "-".repeat(this.username.length);
+
+        this.stars = pad(starsCount, VALUE_WIDTH);
+        this.forks = pad(forkCount, VALUE_WIDTH);
+        this.commits = pad(await this.getCommits(), VALUE_WIDTH);
+        this.followers = pad(user.data.followers, VALUE_WIDTH);
+        this.pr = pad(await this.getPullRequests(), VALUE_WIDTH);
+        this.repo = pad(user.data.public_repos, VALUE_WIDTH);
+        this.uptime = pad(formatUptime(user.data.created_at), UPTIME_WIDTH);
     }
 }
 
