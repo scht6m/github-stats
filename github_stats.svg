@@ -1,895 +1,226 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 500 430" width="550" version="1.1">
-    <defs>
-        <termtosvg:template_settings xmlns:termtosvg="https://github.com/nbedos/termtosvg">
-            <termtosvg:screen_geometry columns="95" rows="21" />
-            <termtosvg:animation type="css" />
-        </termtosvg:template_settings>
-        <style type="text/css" id="generated-style">
-            <![CDATA[#screen {
-                font-family: 'DejaVu Sans Mono', monospace;
-                font-style: normal;
-                font-size: 14px;
-            }
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 460 400" width="550" version="1.1">
+    <style type="text/css">
+        <![CDATA[
+        /* Palette. Every colour comes from the selected theme. */
+        .bg     { fill: #000000 }
+        .fg     { fill: #0FF5EC }
+        .cursor { fill: #0FF5EC }
+        .user   { fill: #0FF5EC }
+        .name   { fill: #0FF5EC }
+        .logo   { fill: #0FF5EC }
+        .label  { fill: #0FF5EC }
+        .value  { fill: #0FF5EC }
+        .uptime { fill: #0FF5EC }
 
-        text {
-            dominant-baseline: text-before-edge;
-            white-space: pre;
-        }
-    
-            :root {
-                --animation-duration: 14558ms;
-            }
+        /* Text sits on a fixed 8px x 17px character grid. Every <text> carries a
+           textLength of 8 * (its character count) so the layout holds together
+           whatever monospace font the viewer's browser falls back to. */
+        #screen { font-family: 'DejaVu Sans Mono', Menlo, Consolas, monospace; font-size: 14px }
+        text    { dominant-baseline: text-before-edge; white-space: pre }
 
-            @keyframes roll {
-                0.000%{transform:translateY(0px)}
-3.400%{transform:translateY(-374px)}
-4.767%{transform:translateY(-748px)}
-7.302%{transform:translateY(-1122px)}
-9.933%{transform:translateY(-1496px)}
-12.357%{transform:translateY(-1870px)}
-14.226%{transform:translateY(-2244px)}
-17.578%{transform:translateY(-2618px)}
-21.239%{transform:translateY(-2992px)}
-21.658%{transform:translateY(-3366px)}
-24.605%{transform:translateY(-3740px)}
-27.627%{transform:translateY(-4114px)}
-29.771%{transform:translateY(-4488px)}
-31.529%{transform:translateY(-4862px)}
-34.277%{transform:translateY(-5236px)}
-36.585%{transform:translateY(-5610px)}
-39.607%{transform:translateY(-5984px)}
-41.256%{transform:translateY(-6358px)}
-43.179%{transform:translateY(-6732px)}
-44.333%{transform:translateY(-7106px)}
-47.685%{transform:translateY(-7480px)}
-51.436%{transform:translateY(-7854px)}
-51.889%{transform:translateY(-8228px)}
-59.658%{transform:translateY(-8602px)}
-62.241%{transform:translateY(-8976px)}
-64.885%{transform:translateY(-9350px)}
-67.406%{transform:translateY(-9724px)}
-68.347%{transform:translateY(-10098px)}
-70.985%{transform:translateY(-10472px)}
-77.469%{transform:translateY(-10846px)}
-81.124%{transform:translateY(-11220px)}
-81.536%{transform:translateY(-11594px)}
-85.046%{transform:translateY(-11968px)}
-86.090%{transform:translateY(-12342px)}
-89.442%{transform:translateY(-12716px)}
-90.267%{transform:translateY(-13090px)}
-93.014%{transform:translateY(-13464px)}
-93.131%{transform:translateY(-13838px)}
-100.000%{transform:translateY(-13838px)}
-            }
+        /* One shared 10s timeline. Each animated element names its own slice of
+           it, so 1% == 100ms. Elements are authored in their finished state and
+           the animation rewinds them, which keeps the SVG readable as a plain
+           transcript if animations never run. */
+        .an { animation-duration: 10s; animation-iteration-count: infinite; animation-timing-function: linear }
 
-            #screen_view {
-                animation-duration: 14558ms;
-                animation-iteration-count:infinite;
-                animation-name:roll;
-                animation-timing-function: steps(1,end);
-                animation-fill-mode: forwards;
-            }
+        /* Prompts fade in and stay. */
+        @keyframes p0  { 0%          { opacity: 0; animation-timing-function: ease-out } 2.4%,  100% { opacity: 1 } }
+        @keyframes p2  { 0%, 11.3%   { opacity: 0; animation-timing-function: ease-out } 13.7%, 100% { opacity: 1 } }
+        @keyframes p14 { 0%, 33.8%   { opacity: 0; animation-timing-function: ease-out } 36.2%, 100% { opacity: 1 } }
+        @keyframes p16 { 0%, 45.1%   { opacity: 0; animation-timing-function: ease-out } 47.5%, 100% { opacity: 1 } }
+        @keyframes p18 { 0%, 54.6%   { opacity: 0; animation-timing-function: ease-out } 57%,   100% { opacity: 1 } }
 
-            @keyframes reveal22{0%{opacity:0;transform:translateY(-6px)}51.436%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.036%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal23{0%{opacity:0;transform:translateY(-6px)}51.886%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.486%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal24{0%{opacity:0;transform:translateY(-6px)}52.336%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}52.936%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal25{0%{opacity:0;transform:translateY(-6px)}52.786%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}53.386%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal26{0%{opacity:0;transform:translateY(-6px)}53.236%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}53.836%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal27{0%{opacity:0;transform:translateY(-6px)}53.686%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}54.286%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal28{0%{opacity:0;transform:translateY(-6px)}54.136%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}54.736%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal29{0%{opacity:0;transform:translateY(-6px)}54.586%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}55.186%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal30{0%{opacity:0;transform:translateY(-6px)}55.036%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}55.636%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal31{0%{opacity:0;transform:translateY(-6px)}55.486%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.086%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal32{0%{opacity:0;transform:translateY(-6px)}55.936%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.536%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal33{0%{opacity:0;transform:translateY(-6px)}56.386%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}56.986%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
-            @keyframes reveal34{0%{opacity:0;transform:translateY(-6px)}56.836%{opacity:0;transform:translateY(-6px);animation-timing-function:ease-out}57.436%{opacity:1;transform:translateY(0)}100%{opacity:1;transform:translateY(0)}}
+        /* Cursors arrive with their prompt and leave on Enter. */
+        @keyframes c0  { 0%        { opacity: 0; animation-timing-function: ease-out } 2.4%,  9.9%  { opacity: 1 } 10.5%, 100% { opacity: 0 } }
+        @keyframes c2  { 0%, 11.3% { opacity: 0; animation-timing-function: ease-out } 13.7%, 23%   { opacity: 1 } 23.6%, 100% { opacity: 0 } }
+        @keyframes c14 { 0%, 33.8% { opacity: 0; animation-timing-function: ease-out } 36.2%, 43.7% { opacity: 1 } 44.3%, 100% { opacity: 0 } }
+        @keyframes c16 { 0%, 45.1% { opacity: 0; animation-timing-function: ease-out } 47.5%, 53.2% { opacity: 1 } 53.8%, 100% { opacity: 0 } }
+        @keyframes blink { 0%, 49.9% { opacity: 1 } 50%, 100% { opacity: 0 } }
+        .blink { animation: blink 1s linear infinite }
+
+        /* Typing: a background-coloured mask slides right one character every
+           90ms, uncovering the command a letter at a time with the cursor
+           riding its leading edge. Even spacing is what makes it read as typing
+           rather than as a stutter. */
+        @keyframes t0  { 0%, 3.2%  { transform: translateX(0); animation-timing-function: steps(6, end) } 8.6%,  100% { transform: translateX(48px) } }
+        @keyframes t2  { 0%, 14.5% { transform: translateX(0); animation-timing-function: steps(8, end) } 21.7%, 100% { transform: translateX(64px) } }
+        @keyframes t14 { 0%, 37%   { transform: translateX(0); animation-timing-function: steps(6, end) } 42.4%, 100% { transform: translateX(48px) } }
+        @keyframes t16 { 0%, 48.3% { transform: translateX(0); animation-timing-function: steps(4, end) } 51.9%, 100% { transform: translateX(32px) } }
+
+        /* Output lines settle in from just below, 70ms apart, so a block prints
+           as a wave down the screen instead of appearing all at once. */
+        @keyframes o1  { 0%, 9.9%  { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 12.3%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n0  { 0%, 23%   { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 25.4%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n1  { 0%, 23.7% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 26.1%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n2  { 0%, 24.4% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 26.8%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n3  { 0%, 25.1% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 27.5%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n4  { 0%, 25.8% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 28.2%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n5  { 0%, 26.5% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 28.9%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n6  { 0%, 27.2% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 29.6%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n7  { 0%, 27.9% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 30.3%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n8  { 0%, 28.6% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 31%,   100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n9  { 0%, 29.3% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 31.7%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes n10 { 0%, 30%   { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 32.4%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes o15 { 0%, 43.7% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 46.1%, 100% { opacity: 1; transform: translateY(0) } }
+        @keyframes o17 { 0%, 53.2% { opacity: 0; transform: translateY(4px); animation-timing-function: ease-out } 55.6%, 100% { opacity: 1; transform: translateY(0) } }
         ]]>
-        </style>
-        <style type="text/css" id="user-style">
-            /* The colors defined below are the default 16 colors used for rendering text of the terminal. Adjust
-               them as needed.
-               gjm8 color theme (source: https://terminal.sexy/) */
-            .foreground {fill: #0FF5EC}
-            .background {fill: #000000}
-            .color0 {fill: #272822}
-            .color1 {fill: #f92672}
-            .green {fill: #0FF5EC}
-            .color3 {fill: #f4bf75}
-            .color4 {fill: #66d9ef}
-            .purple {fill: #0FF5EC}
-            .color6 {fill: #0FF5EC}
-            .color7 {fill: #f8f8f2}
-            .color8 {fill: #75715e}
-            .color9 {fill: #fd971f}
-            .color10 {fill: #0FF5EC}
-            .color11 {fill: #49483e}
-            .color12 {fill: #0FF5EC}
-            .color13 {fill: #f5f4f1}
-            .orange {fill: #0FF5EC}
-            .color15 {fill: #f9f8f5}
-        </style>
+    </style>
+    <defs>
+        <g id="prompt"><text x="0" textLength="136" class="fg"><tspan class="user" font-weight="bold">scht6m@github</tspan>:<tspan font-weight="bold">~</tspan>$ </text></g>
     </defs>
-    <rect id="terminalui" class="background" width="100%" height="100%" ry="4.5826941" />
+    <rect class="bg" width="100%" height="100%" ry="4.5826941" />
     <circle cx="24" cy="23" r="7" fill="#f92672" />
     <circle cx="44" cy="23" r="7" fill="#f4bf75" />
     <circle cx="64" cy="23" r="7" fill="#a6e22e" />
-    <svg id="screen" width="760" height="357" x="23" y="50" viewBox="0 0 760 357" preserveAspectRatio="xMidYMin slice">
-        <rect class="background" height="100%" width="100%" x="0" y="0" />
-        <defs>
-            <g id="g1">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="16" class="foreground">$ </text>
-                <text x="160" textLength="8" class="background"></text>
-            </g>
-            <g id="g2">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="24" class="foreground">$ w</text>
-                <text x="168" textLength="8" class="background"></text>
-            </g>
-            <g id="g3">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="32" class="foreground">$ wh</text>
-                <text x="176" textLength="8" class="background"></text>
-            </g>
-            <g id="g4">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="40" class="foreground">$ who</text>
-                <text x="184" textLength="8" class="background"></text>
-            </g>
-            <g id="g5">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ whoa</text>
-                <text x="192" textLength="8" class="background"></text>
-            </g>
-            <g id="g6">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="56" class="foreground">$ whoam</text>
-                <text x="200" textLength="8" class="background"></text>
-            </g>
-            <g id="g7">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ whoami</text>
-                <text x="208" textLength="8" class="background"></text>
-            </g>
-            <g id="g8">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ whoami</text>
-            </g>
-            <g id="g9">
-                <text x="0" textLength="8" class="background"></text>
-            </g>
-            <g id="g10">
-                <text x="0" textLength="128" class="color6">Andy Azhari Pane</text>
-            </g>
-            <g id="g11">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="24" class="foreground">$ n</text>
-                <text x="168" textLength="8" class="background"></text>
-            </g>
-            <g id="g12">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="32" class="foreground">$ ne</text>
-                <text x="176" textLength="8" class="background"></text>
-            </g>
-            <g id="g13">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="40" class="foreground">$ neo</text>
-                <text x="184" textLength="8" class="background"></text>
-            </g>
-            <g id="g14">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ neof</text>
-                <text x="192" textLength="8" class="background"></text>
-            </g>
-            <g id="g15">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="56" class="foreground">$ neofe</text>
-                <text x="200" textLength="8" class="background"></text>
-            </g>
-            <g id="g16">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ neofet</text>
-                <text x="208" textLength="8" class="background"></text>
-            </g>
-            <g id="g17">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="72" class="foreground">$ neofetc</text>
-                <text x="216" textLength="8" class="background"></text>
-            </g>
-            <g id="g18">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="80" class="foreground">$ neofetch</text>
-                <text x="224" textLength="8" class="background"></text>
-            </g>
-            <g id="g19">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="80" class="foreground">$ neofetch</text>
-                <text x="224" textLength="8" class="background"></text>
-            </g>
-            <g id="g20">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="80" class="foreground">$ neofetch</text>
-                <text x="224" textLength="8" class="background"></text>
-            </g>
-            <g id="g21">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="80" class="foreground">$ neofetch</text>
-            </g>
-            <g id="g22">
-                <rect x="80" y="0" width="64" height="14" class="orange" />
-                <text x="220" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-            </g>
-            <g id="g23">
-                <rect x="56" y="0" width="112" height="14" class="orange" />
-                <text x="220" textLength="128" class="foreground">----------------</text>
-            </g>
-            <g id="g24">
-                <rect x="40" y="0" width="24" height="14" class="orange" />
-                <rect x="80" y="0" width="64" height="14" class="orange" />
-                <rect x="160" y="0" width="24" height="14" class="orange" />
-                <text x="220" textLength="32" class="purple">OS: </text>
-                <text x="252" textLength="48" class="green">GitHub</text>
-            </g>
-            <g id="g25">
-                <rect x="32" y="0" width="32" height="14" class="orange" />
-                <rect x="160" y="0" width="32" height="14" class="orange" />
-                <text x="220" textLength="64" class="purple">Uptime: </text>
-                <text x="284" textLength="128" class="green">0y 0d 12h       </text>
-            </g>
-            <g id="g26">
-                <rect x="32" y="0" width="32" height="14" class="orange" />
-                <rect x="160" y="0" width="32" height="14" class="orange" />
-                <text x="220" textLength="56" class="purple">Stars: </text>
-                <text x="276" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g27">
-                <rect x="32" y="0" width="24" height="14" class="orange" />
-                <rect x="168" y="0" width="24" height="14" class="orange" />
-                <text x="220" textLength="56" class="purple">Forks: </text>
-                <text x="276" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g28">
-                <rect x="32" y="0" width="32" height="14" class="orange" />
-                <rect x="160" y="0" width="32" height="14" class="orange" />
-                <text x="220" textLength="72" class="purple">Commits: </text>
-                <text x="292" textLength="96" class="green"> 1          </text>
-            </g>
-            <g id="g29">
-                <rect x="32" y="0" width="40" height="14" class="orange" />
-                <rect x="152" y="0" width="40" height="14" class="orange" />
-                <text x="220" textLength="88" class="purple">Followers: </text>
-                <text x="308" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g30">
-                <rect x="40" y="0" width="16" height="14" class="orange" />
-                <rect x="64" y="0" width="32" height="14" class="orange" />
-                <rect x="128" y="0" width="56" height="14" class="orange" />
-                <text x="220" textLength="120" class="purple">Pull Requests: </text>
-                <text x="340" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g31">
-                <rect x="48" y="0" width="16" height="14" class="orange" />
-                <rect x="136" y="0" width="40" height="14" class="orange" />
-                <text x="220" textLength="64" class="purple">Issues: </text>
-                <text x="284" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g32">
-                <rect x="72" y="0" width="16" height="14" class="orange" />
-                <rect x="136" y="0" width="16" height="14" class="orange" />
-                <text x="220" textLength="56" class="purple">Repos: </text>
-                <text x="276" textLength="96" class="green"> 2          </text>
-            </g>
-            <g id="g33">
-                <text x="220" textLength="56" class="purple">Gists: </text>
-                <text x="276" textLength="96" class="green"> 0          </text>
-            </g>
-            <g id="g34">
-                <text x="220" textLength="24" class="foreground">&#9608;&#9608;&#9608;</text>
-                <text x="252" textLength="24" class="green">&#9608;&#9608;&#9608;</text>
-                <text x="284" textLength="24" class="purple">&#9608;&#9608;&#9608;</text>
-                <text x="316" textLength="24" class="orange">&#9608;&#9608;&#9608;</text>
-                <text x="348" textLength="24" class="color6">&#9608;&#9608;&#9608;</text>
-            </g>
-            <g id="g35">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="24" class="foreground">$ u</text>
-                <text x="168" textLength="8" class="background"></text>
-            </g>
-            <g id="g36">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="32" class="foreground">$ up</text>
-                <text x="176" textLength="8" class="background"></text>
-            </g>
-            <g id="g37">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="40" class="foreground">$ upt</text>
-                <text x="184" textLength="8" class="background"></text>
-            </g>
-            <g id="g38">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ upti</text>
-                <text x="192" textLength="8" class="background"></text>
-            </g>
-            <g id="g39">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="56" class="foreground">$ uptim</text>
-                <text x="200" textLength="8" class="background"></text>
-            </g>
-            <g id="g40">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ uptime</text>
-                <text x="208" textLength="8" class="background"></text>
-            </g>
-            <g id="g41">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="64" class="foreground">$ uptime</text>
-            </g>
-            <g id="g42">
-                <text x="0" textLength="32" font-weight="bold" class="orange">0</text>
-            </g>
-            <g id="g43">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="24" class="foreground">$ e</text>
-                <text x="168" textLength="8" class="background"></text>
-            </g>
-            <g id="g44">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="32" class="foreground">$ ex</text>
-                <text x="176" textLength="8" class="background"></text>
-            </g>
-            <g id="g45">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="40" class="foreground">$ exi</text>
-                <text x="184" textLength="8" class="background"></text>
-            </g>
-            <g id="g46">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ exit</text>
-                <text x="192" textLength="8" class="background"></text>
-            </g>
-            <g id="g47">
-                <text x="0" textLength="128" font-weight="bold" class="color10">scht6m@github</text>
-                <text x="128" textLength="8" class="foreground">:</text>
-                <text x="136" textLength="8" font-weight="bold" class="color12">~</text>
-                <text x="144" textLength="48" class="foreground">$ exit</text>
-            </g>
-            <g id="g48">
-                <text x="0" textLength="32" class="foreground">exit</text>
-            </g>
-        </defs>
-        <g id="screen_view">
-            <g>
-                <rect x="160" y="0" width="8" height="17" class="foreground" />
-                <use xlink:href="#g1" y="0" />
-            </g>
-            <g>
-                <rect x="168" y="374" width="8" height="17" class="foreground" />
-                <use xlink:href="#g2" y="374" />
-            </g>
-            <g>
-                <rect x="176" y="748" width="8" height="17" class="foreground" />
-                <use xlink:href="#g3" y="748" />
-            </g>
-            <g>
-                <rect x="184" y="1122" width="8" height="17" class="foreground" />
-                <use xlink:href="#g4" y="1122" />
-            </g>
-            <g>
-                <rect x="192" y="1496" width="8" height="17" class="foreground" />
-                <use xlink:href="#g5" y="1496" />
-            </g>
-            <g>
-                <rect x="200" y="1870" width="8" height="17" class="foreground" />
-                <use xlink:href="#g6" y="1870" />
-            </g>
-            <g>
-                <rect x="208" y="2244" width="8" height="17" class="foreground" />
-                <use xlink:href="#g7" y="2244" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="2618" />
-                <rect x="0" y="2635" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="2635" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="2992" />
-                <use xlink:href="#g10" y="3009" />
-                <rect x="0" y="3026" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="3026" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="3366" />
-                <use xlink:href="#g10" y="3383" />
-                <rect x="160" y="3400" width="8" height="17" class="foreground" />
-                <use xlink:href="#g1" y="3400" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="3740" />
-                <use xlink:href="#g10" y="3757" />
-                <rect x="168" y="3774" width="8" height="17" class="foreground" />
-                <use xlink:href="#g11" y="3774" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="4114" />
-                <use xlink:href="#g10" y="4131" />
-                <rect x="176" y="4148" width="8" height="17" class="foreground" />
-                <use xlink:href="#g12" y="4148" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="4488" />
-                <use xlink:href="#g10" y="4505" />
-                <rect x="184" y="4522" width="8" height="17" class="foreground" />
-                <use xlink:href="#g13" y="4522" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="4862" />
-                <use xlink:href="#g10" y="4879" />
-                <rect x="192" y="4896" width="8" height="17" class="foreground" />
-                <use xlink:href="#g14" y="4896" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="5236" />
-                <use xlink:href="#g10" y="5253" />
-                <rect x="200" y="5270" width="8" height="17" class="foreground" />
-                <use xlink:href="#g15" y="5270" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="5610" />
-                <use xlink:href="#g10" y="5627" />
-                <rect x="208" y="5644" width="8" height="17" class="foreground" />
-                <use xlink:href="#g16" y="5644" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="5984" />
-                <use xlink:href="#g10" y="6001" />
-                <rect x="216" y="6018" width="8" height="17" class="foreground" />
-                <use xlink:href="#g17" y="6018" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="6358" />
-                <use xlink:href="#g10" y="6375" />
-                <rect x="224" y="6392" width="8" height="17" class="foreground" />
-                <use xlink:href="#g18" y="6392" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="6732" />
-                <use xlink:href="#g10" y="6749" />
-                <rect x="224" y="6766" width="8" height="17" class="foreground" />
-                <use xlink:href="#g19" y="6766" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="7106" />
-                <use xlink:href="#g10" y="7123" />
-                <rect x="224" y="7140" width="8" height="17" class="foreground" />
-                <use xlink:href="#g20" y="7140" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="7480" />
-                <use xlink:href="#g10" y="7497" />
-                <use xlink:href="#g21" y="7514" />
-                <rect x="0" y="7531" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="7531" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="7854" />
-                <use xlink:href="#g10" y="7871" />
-                <use xlink:href="#g21" y="7888" />
-                <use xlink:href="#g22" y="7905" style="animation:reveal22 14558ms linear infinite" />
-                <use xlink:href="#g23" y="7922" style="animation:reveal23 14558ms linear infinite" />
-                <use xlink:href="#g24" y="7939" style="animation:reveal24 14558ms linear infinite" />
-                <use xlink:href="#g25" y="7956" style="animation:reveal25 14558ms linear infinite" />
-                <use xlink:href="#g26" y="7973" style="animation:reveal26 14558ms linear infinite" />
-                <use xlink:href="#g27" y="7990" style="animation:reveal27 14558ms linear infinite" />
-                <use xlink:href="#g28" y="8007" style="animation:reveal28 14558ms linear infinite" />
-                <use xlink:href="#g29" y="8024" style="animation:reveal29 14558ms linear infinite" />
-                <use xlink:href="#g30" y="8041" style="animation:reveal30 14558ms linear infinite" />
-                <use xlink:href="#g31" y="8058" style="animation:reveal31 14558ms linear infinite" />
-                <use xlink:href="#g32" y="8075" style="animation:reveal32 14558ms linear infinite" />
-                <use xlink:href="#g33" y="8092" style="animation:reveal33 14558ms linear infinite" />
-                <use xlink:href="#g34" y="8109" style="animation:reveal34 14558ms linear infinite" />
-                <rect x="0" y="8126" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="8126" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="8228" />
-                <use xlink:href="#g10" y="8245" />
-                <use xlink:href="#g21" y="8262" />
-                <use xlink:href="#g22" y="8279" />
-                <use xlink:href="#g23" y="8296" />
-                <use xlink:href="#g24" y="8313" />
-                <use xlink:href="#g25" y="8330" />
-                <use xlink:href="#g26" y="8347" />
-                <use xlink:href="#g27" y="8364" />
-                <use xlink:href="#g28" y="8381" />
-                <use xlink:href="#g29" y="8398" />
-                <use xlink:href="#g30" y="8415" />
-                <use xlink:href="#g31" y="8432" />
-                <use xlink:href="#g32" y="8449" />
-                <use xlink:href="#g33" y="8466" />
-                <use xlink:href="#g34" y="8483" />
-                <rect x="160" y="8500" width="8" height="17" class="foreground" />
-                <use xlink:href="#g1" y="8500" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="8602" />
-                <use xlink:href="#g10" y="8619" />
-                <use xlink:href="#g21" y="8636" />
-                <use xlink:href="#g22" y="8653" />
-                <use xlink:href="#g23" y="8670" />
-                <use xlink:href="#g24" y="8687" />
-                <use xlink:href="#g25" y="8704" />
-                <use xlink:href="#g26" y="8721" />
-                <use xlink:href="#g27" y="8738" />
-                <use xlink:href="#g28" y="8755" />
-                <use xlink:href="#g29" y="8772" />
-                <use xlink:href="#g30" y="8789" />
-                <use xlink:href="#g31" y="8806" />
-                <use xlink:href="#g32" y="8823" />
-                <use xlink:href="#g33" y="8840" />
-                <use xlink:href="#g34" y="8857" />
-                <rect x="168" y="8874" width="8" height="17" class="foreground" />
-                <use xlink:href="#g35" y="8874" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="8976" />
-                <use xlink:href="#g10" y="8993" />
-                <use xlink:href="#g21" y="9010" />
-                <use xlink:href="#g22" y="9027" />
-                <use xlink:href="#g23" y="9044" />
-                <use xlink:href="#g24" y="9061" />
-                <use xlink:href="#g25" y="9078" />
-                <use xlink:href="#g26" y="9095" />
-                <use xlink:href="#g27" y="9112" />
-                <use xlink:href="#g28" y="9129" />
-                <use xlink:href="#g29" y="9146" />
-                <use xlink:href="#g30" y="9163" />
-                <use xlink:href="#g31" y="9180" />
-                <use xlink:href="#g32" y="9197" />
-                <use xlink:href="#g33" y="9214" />
-                <use xlink:href="#g34" y="9231" />
-                <rect x="176" y="9248" width="8" height="17" class="foreground" />
-                <use xlink:href="#g36" y="9248" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="9350" />
-                <use xlink:href="#g10" y="9367" />
-                <use xlink:href="#g21" y="9384" />
-                <use xlink:href="#g22" y="9401" />
-                <use xlink:href="#g23" y="9418" />
-                <use xlink:href="#g24" y="9435" />
-                <use xlink:href="#g25" y="9452" />
-                <use xlink:href="#g26" y="9469" />
-                <use xlink:href="#g27" y="9486" />
-                <use xlink:href="#g28" y="9503" />
-                <use xlink:href="#g29" y="9520" />
-                <use xlink:href="#g30" y="9537" />
-                <use xlink:href="#g31" y="9554" />
-                <use xlink:href="#g32" y="9571" />
-                <use xlink:href="#g33" y="9588" />
-                <use xlink:href="#g34" y="9605" />
-                <rect x="184" y="9622" width="8" height="17" class="foreground" />
-                <use xlink:href="#g37" y="9622" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="9724" />
-                <use xlink:href="#g10" y="9741" />
-                <use xlink:href="#g21" y="9758" />
-                <use xlink:href="#g22" y="9775" />
-                <use xlink:href="#g23" y="9792" />
-                <use xlink:href="#g24" y="9809" />
-                <use xlink:href="#g25" y="9826" />
-                <use xlink:href="#g26" y="9843" />
-                <use xlink:href="#g27" y="9860" />
-                <use xlink:href="#g28" y="9877" />
-                <use xlink:href="#g29" y="9894" />
-                <use xlink:href="#g30" y="9911" />
-                <use xlink:href="#g31" y="9928" />
-                <use xlink:href="#g32" y="9945" />
-                <use xlink:href="#g33" y="9962" />
-                <use xlink:href="#g34" y="9979" />
-                <rect x="192" y="9996" width="8" height="17" class="foreground" />
-                <use xlink:href="#g38" y="9996" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="10098" />
-                <use xlink:href="#g10" y="10115" />
-                <use xlink:href="#g21" y="10132" />
-                <use xlink:href="#g22" y="10149" />
-                <use xlink:href="#g23" y="10166" />
-                <use xlink:href="#g24" y="10183" />
-                <use xlink:href="#g25" y="10200" />
-                <use xlink:href="#g26" y="10217" />
-                <use xlink:href="#g27" y="10234" />
-                <use xlink:href="#g28" y="10251" />
-                <use xlink:href="#g29" y="10268" />
-                <use xlink:href="#g30" y="10285" />
-                <use xlink:href="#g31" y="10302" />
-                <use xlink:href="#g32" y="10319" />
-                <use xlink:href="#g33" y="10336" />
-                <use xlink:href="#g34" y="10353" />
-                <rect x="200" y="10370" width="8" height="17" class="foreground" />
-                <use xlink:href="#g39" y="10370" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="10472" />
-                <use xlink:href="#g10" y="10489" />
-                <use xlink:href="#g21" y="10506" />
-                <use xlink:href="#g22" y="10523" />
-                <use xlink:href="#g23" y="10540" />
-                <use xlink:href="#g24" y="10557" />
-                <use xlink:href="#g25" y="10574" />
-                <use xlink:href="#g26" y="10591" />
-                <use xlink:href="#g27" y="10608" />
-                <use xlink:href="#g28" y="10625" />
-                <use xlink:href="#g29" y="10642" />
-                <use xlink:href="#g30" y="10659" />
-                <use xlink:href="#g31" y="10676" />
-                <use xlink:href="#g32" y="10693" />
-                <use xlink:href="#g33" y="10710" />
-                <use xlink:href="#g34" y="10727" />
-                <rect x="208" y="10744" width="8" height="17" class="foreground" />
-                <use xlink:href="#g40" y="10744" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="10846" />
-                <use xlink:href="#g10" y="10863" />
-                <use xlink:href="#g21" y="10880" />
-                <use xlink:href="#g22" y="10897" />
-                <use xlink:href="#g23" y="10914" />
-                <use xlink:href="#g24" y="10931" />
-                <use xlink:href="#g25" y="10948" />
-                <use xlink:href="#g26" y="10965" />
-                <use xlink:href="#g27" y="10982" />
-                <use xlink:href="#g28" y="10999" />
-                <use xlink:href="#g29" y="11016" />
-                <use xlink:href="#g30" y="11033" />
-                <use xlink:href="#g31" y="11050" />
-                <use xlink:href="#g32" y="11067" />
-                <use xlink:href="#g33" y="11084" />
-                <use xlink:href="#g34" y="11101" />
-                <use xlink:href="#g41" y="11118" />
-                <rect x="0" y="11135" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="11135" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="11220" />
-                <use xlink:href="#g10" y="11237" />
-                <use xlink:href="#g21" y="11254" />
-                <use xlink:href="#g22" y="11271" />
-                <use xlink:href="#g23" y="11288" />
-                <use xlink:href="#g24" y="11305" />
-                <use xlink:href="#g25" y="11322" />
-                <use xlink:href="#g26" y="11339" />
-                <use xlink:href="#g27" y="11356" />
-                <use xlink:href="#g28" y="11373" />
-                <use xlink:href="#g29" y="11390" />
-                <use xlink:href="#g30" y="11407" />
-                <use xlink:href="#g31" y="11424" />
-                <use xlink:href="#g32" y="11441" />
-                <use xlink:href="#g33" y="11458" />
-                <use xlink:href="#g34" y="11475" />
-                <use xlink:href="#g41" y="11492" />
-                <use xlink:href="#g42" y="11509" />
-                <rect x="0" y="11526" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="11526" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="11594" />
-                <use xlink:href="#g10" y="11611" />
-                <use xlink:href="#g21" y="11628" />
-                <use xlink:href="#g22" y="11645" />
-                <use xlink:href="#g23" y="11662" />
-                <use xlink:href="#g24" y="11679" />
-                <use xlink:href="#g25" y="11696" />
-                <use xlink:href="#g26" y="11713" />
-                <use xlink:href="#g27" y="11730" />
-                <use xlink:href="#g28" y="11747" />
-                <use xlink:href="#g29" y="11764" />
-                <use xlink:href="#g30" y="11781" />
-                <use xlink:href="#g31" y="11798" />
-                <use xlink:href="#g32" y="11815" />
-                <use xlink:href="#g33" y="11832" />
-                <use xlink:href="#g34" y="11849" />
-                <use xlink:href="#g41" y="11866" />
-                <use xlink:href="#g42" y="11883" />
-                <rect x="160" y="11900" width="8" height="17" class="foreground" />
-                <use xlink:href="#g1" y="11900" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="11968" />
-                <use xlink:href="#g10" y="11985" />
-                <use xlink:href="#g21" y="12002" />
-                <use xlink:href="#g22" y="12019" />
-                <use xlink:href="#g23" y="12036" />
-                <use xlink:href="#g24" y="12053" />
-                <use xlink:href="#g25" y="12070" />
-                <use xlink:href="#g26" y="12087" />
-                <use xlink:href="#g27" y="12104" />
-                <use xlink:href="#g28" y="12121" />
-                <use xlink:href="#g29" y="12138" />
-                <use xlink:href="#g30" y="12155" />
-                <use xlink:href="#g31" y="12172" />
-                <use xlink:href="#g32" y="12189" />
-                <use xlink:href="#g33" y="12206" />
-                <use xlink:href="#g34" y="12223" />
-                <use xlink:href="#g41" y="12240" />
-                <use xlink:href="#g42" y="12257" />
-                <rect x="168" y="12274" width="8" height="17" class="foreground" />
-                <use xlink:href="#g43" y="12274" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="12342" />
-                <use xlink:href="#g10" y="12359" />
-                <use xlink:href="#g21" y="12376" />
-                <use xlink:href="#g22" y="12393" />
-                <use xlink:href="#g23" y="12410" />
-                <use xlink:href="#g24" y="12427" />
-                <use xlink:href="#g25" y="12444" />
-                <use xlink:href="#g26" y="12461" />
-                <use xlink:href="#g27" y="12478" />
-                <use xlink:href="#g28" y="12495" />
-                <use xlink:href="#g29" y="12512" />
-                <use xlink:href="#g30" y="12529" />
-                <use xlink:href="#g31" y="12546" />
-                <use xlink:href="#g32" y="12563" />
-                <use xlink:href="#g33" y="12580" />
-                <use xlink:href="#g34" y="12597" />
-                <use xlink:href="#g41" y="12614" />
-                <use xlink:href="#g42" y="12631" />
-                <rect x="176" y="12648" width="8" height="17" class="foreground" />
-                <use xlink:href="#g44" y="12648" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="12716" />
-                <use xlink:href="#g10" y="12733" />
-                <use xlink:href="#g21" y="12750" />
-                <use xlink:href="#g22" y="12767" />
-                <use xlink:href="#g23" y="12784" />
-                <use xlink:href="#g24" y="12801" />
-                <use xlink:href="#g25" y="12818" />
-                <use xlink:href="#g26" y="12835" />
-                <use xlink:href="#g27" y="12852" />
-                <use xlink:href="#g28" y="12869" />
-                <use xlink:href="#g29" y="12886" />
-                <use xlink:href="#g30" y="12903" />
-                <use xlink:href="#g31" y="12920" />
-                <use xlink:href="#g32" y="12937" />
-                <use xlink:href="#g33" y="12954" />
-                <use xlink:href="#g34" y="12971" />
-                <use xlink:href="#g41" y="12988" />
-                <use xlink:href="#g42" y="13005" />
-                <rect x="184" y="13022" width="8" height="17" class="foreground" />
-                <use xlink:href="#g45" y="13022" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="13090" />
-                <use xlink:href="#g10" y="13107" />
-                <use xlink:href="#g21" y="13124" />
-                <use xlink:href="#g22" y="13141" />
-                <use xlink:href="#g23" y="13158" />
-                <use xlink:href="#g24" y="13175" />
-                <use xlink:href="#g25" y="13192" />
-                <use xlink:href="#g26" y="13209" />
-                <use xlink:href="#g27" y="13226" />
-                <use xlink:href="#g28" y="13243" />
-                <use xlink:href="#g29" y="13260" />
-                <use xlink:href="#g30" y="13277" />
-                <use xlink:href="#g31" y="13294" />
-                <use xlink:href="#g32" y="13311" />
-                <use xlink:href="#g33" y="13328" />
-                <use xlink:href="#g34" y="13345" />
-                <use xlink:href="#g41" y="13362" />
-                <use xlink:href="#g42" y="13379" />
-                <rect x="192" y="13396" width="8" height="17" class="foreground" />
-                <use xlink:href="#g46" y="13396" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="13464" />
-                <use xlink:href="#g10" y="13481" />
-                <use xlink:href="#g21" y="13498" />
-                <use xlink:href="#g22" y="13515" />
-                <use xlink:href="#g23" y="13532" />
-                <use xlink:href="#g24" y="13549" />
-                <use xlink:href="#g25" y="13566" />
-                <use xlink:href="#g26" y="13583" />
-                <use xlink:href="#g27" y="13600" />
-                <use xlink:href="#g28" y="13617" />
-                <use xlink:href="#g29" y="13634" />
-                <use xlink:href="#g30" y="13651" />
-                <use xlink:href="#g31" y="13668" />
-                <use xlink:href="#g32" y="13685" />
-                <use xlink:href="#g33" y="13702" />
-                <use xlink:href="#g34" y="13719" />
-                <use xlink:href="#g41" y="13736" />
-                <use xlink:href="#g42" y="13753" />
-                <use xlink:href="#g47" y="13770" />
-                <rect x="0" y="13787" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="13787" />
-            </g>
-            <g>
-                <use xlink:href="#g8" y="13838" />
-                <use xlink:href="#g10" y="13855" />
-                <use xlink:href="#g21" y="13872" />
-                <use xlink:href="#g22" y="13889" />
-                <use xlink:href="#g23" y="13906" />
-                <use xlink:href="#g24" y="13923" />
-                <use xlink:href="#g25" y="13940" />
-                <use xlink:href="#g26" y="13957" />
-                <use xlink:href="#g27" y="13974" />
-                <use xlink:href="#g28" y="13991" />
-                <use xlink:href="#g29" y="14008" />
-                <use xlink:href="#g30" y="14025" />
-                <use xlink:href="#g31" y="14042" />
-                <use xlink:href="#g32" y="14059" />
-                <use xlink:href="#g33" y="14076" />
-                <use xlink:href="#g34" y="14093" />
-                <use xlink:href="#g41" y="14110" />
-                <use xlink:href="#g42" y="14127" />
-                <use xlink:href="#g47" y="14144" />
-                <use xlink:href="#g48" y="14161" />
-                <rect x="0" y="14178" width="8" height="17" class="foreground" />
-                <use xlink:href="#g9" y="14178" />
+    <g id="screen" transform="translate(23, 50)">
+
+        <!-- $ whoami -->
+        <g transform="translate(0, 0)">
+            <use xlink:href="#prompt" class="an" style="animation-name:p0" />
+            <text x="136" textLength="48" class="fg">whoami</text>
+            <g transform="translate(136, 0)">
+                <g class="an" style="animation-name:t0" transform="translate(48, 0)">
+                    <rect class="bg" width="48" height="17" />
+                    <g class="an" style="animation-name:c0" opacity="0"><rect class="cursor" y="1" width="8" height="15" /></g>
+                </g>
             </g>
         </g>
-    </svg>
+        <g transform="translate(0, 17)">
+            <g class="an" style="animation-name:o1"><text textLength="128" class="name">Andy Azhari Pane</text></g>
+        </g>
+
+        <!-- $ neofetch -->
+        <g transform="translate(0, 34)">
+            <use xlink:href="#prompt" class="an" style="animation-name:p2" />
+            <text x="136" textLength="64" class="fg">neofetch</text>
+            <g transform="translate(136, 0)">
+                <g class="an" style="animation-name:t2" transform="translate(64, 0)">
+                    <rect class="bg" width="64" height="17" />
+                    <g class="an" style="animation-name:c2" opacity="0"><rect class="cursor" y="1" width="8" height="15" /></g>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(0, 51)">
+            <g class="an" style="animation-name:n0">
+                <rect class="logo" x="80" y="1" width="64" height="14" />
+                <text x="240" textLength="104" font-weight="bold" class="user">scht6m@github</text>
+            </g>
+        </g>
+        <g transform="translate(0, 68)">
+            <g class="an" style="animation-name:n1">
+                <rect class="logo" x="56" y="1" width="112" height="14" />
+                <text x="240" textLength="104" class="fg">-------------</text>
+            </g>
+        </g>
+        <g transform="translate(0, 85)">
+            <g class="an" style="animation-name:n2">
+                <rect class="logo" x="40" y="1" width="24" height="14" />
+                <rect class="logo" x="80" y="1" width="64" height="14" />
+                <rect class="logo" x="160" y="1" width="24" height="14" />
+                <text x="240" textLength="32" class="label">OS: </text>
+                <text x="272" textLength="48" class="value">GitHub</text>
+            </g>
+        </g>
+        <g transform="translate(0, 102)">
+            <g class="an" style="animation-name:n3">
+                <rect class="logo" x="32" y="1" width="32" height="14" />
+                <rect class="logo" x="160" y="1" width="32" height="14" />
+                <text x="240" textLength="56" class="label">Stars: </text>
+                <text x="296" textLength="48" class="value">0     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 119)">
+            <g class="an" style="animation-name:n4">
+                <rect class="logo" x="32" y="1" width="32" height="14" />
+                <rect class="logo" x="160" y="1" width="32" height="14" />
+                <text x="240" textLength="56" class="label">Forks: </text>
+                <text x="296" textLength="48" class="value">0     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 136)">
+            <g class="an" style="animation-name:n5">
+                <rect class="logo" x="32" y="1" width="24" height="14" />
+                <rect class="logo" x="168" y="1" width="24" height="14" />
+                <text x="240" textLength="72" class="label">Commits: </text>
+                <text x="312" textLength="48" class="value">1     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 153)">
+            <g class="an" style="animation-name:n6">
+                <rect class="logo" x="32" y="1" width="32" height="14" />
+                <rect class="logo" x="160" y="1" width="32" height="14" />
+                <text x="240" textLength="88" class="label">Followers: </text>
+                <text x="328" textLength="48" class="value">0     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 170)">
+            <g class="an" style="animation-name:n7">
+                <rect class="logo" x="32" y="1" width="40" height="14" />
+                <rect class="logo" x="152" y="1" width="40" height="14" />
+                <text x="240" textLength="120" class="label">Pull Requests: </text>
+                <text x="360" textLength="48" class="value">0     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 187)">
+            <g class="an" style="animation-name:n8">
+                <rect class="logo" x="40" y="1" width="16" height="14" />
+                <rect class="logo" x="64" y="1" width="32" height="14" />
+                <rect class="logo" x="128" y="1" width="56" height="14" />
+                <text x="240" textLength="56" class="label">Repos: </text>
+                <text x="296" textLength="48" class="value">2     </text>
+            </g>
+        </g>
+        <g transform="translate(0, 204)">
+            <g class="an" style="animation-name:n9">
+                <rect class="logo" x="48" y="1" width="16" height="14" />
+                <rect class="logo" x="136" y="1" width="40" height="14" />
+            </g>
+        </g>
+        <g transform="translate(0, 221)">
+            <g class="an" style="animation-name:n10">
+                <rect class="logo" x="72" y="1" width="16" height="14" />
+                <rect class="logo" x="136" y="1" width="16" height="14" />
+            </g>
+        </g>
+
+        <!-- $ uptime -->
+        <g transform="translate(0, 238)">
+            <use xlink:href="#prompt" class="an" style="animation-name:p14" />
+            <text x="136" textLength="48" class="fg">uptime</text>
+            <g transform="translate(136, 0)">
+                <g class="an" style="animation-name:t14" transform="translate(48, 0)">
+                    <rect class="bg" width="48" height="17" />
+                    <g class="an" style="animation-name:c14" opacity="0"><rect class="cursor" y="1" width="8" height="15" /></g>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(0, 255)">
+            <g class="an" style="animation-name:o15"><text textLength="224" class="uptime">0 years, 0 days, 13 hours   </text></g>
+        </g>
+
+        <!-- $ exit -->
+        <g transform="translate(0, 272)">
+            <use xlink:href="#prompt" class="an" style="animation-name:p16" />
+            <text x="136" textLength="32" class="fg">exit</text>
+            <g transform="translate(136, 0)">
+                <g class="an" style="animation-name:t16" transform="translate(32, 0)">
+                    <rect class="bg" width="32" height="17" />
+                    <g class="an" style="animation-name:c16" opacity="0"><rect class="cursor" y="1" width="8" height="15" /></g>
+                </g>
+            </g>
+        </g>
+        <g transform="translate(0, 289)">
+            <g class="an" style="animation-name:o17"><text textLength="32" class="fg">exit</text></g>
+        </g>
+
+        <!-- resting prompt -->
+        <g transform="translate(0, 306)">
+            <use xlink:href="#prompt" class="an" style="animation-name:p18" />
+            <g transform="translate(136, 0)">
+                <g class="an" style="animation-name:p18" opacity="0"><rect class="cursor blink" y="1" width="8" height="15" /></g>
+            </g>
+        </g>
+
+    </g>
 </svg>
